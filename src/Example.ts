@@ -1,10 +1,10 @@
-
 export class Example {
-    private covered: boolean = false;
-    /* Some code in here :) */
+  private covered: boolean = false;
 
-    public coverageTest() {
-        /* Should be uncovered. */
-        this.covered = true;
-    }
+  /* Some code in here :) */
+
+  public coverageTest() {
+    /* Should be uncovered. */
+    this.covered = true;
+  }
 }
