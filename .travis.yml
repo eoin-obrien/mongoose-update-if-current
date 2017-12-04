@@ -1,21 +1,32 @@
+env:
+  global:
+    - CC_TEST_REPORTER_ID=3d6fb8990d360e76598ea2087d118d941322480e8eed258b77468bf5ce6f5aec
+
 language: node_js
 
 node_js:
-  - "6.2"
-  - "6.3"
-  - "6.4"
-  - "6.5"
-  - "4.4"
+  - "node"
+  - "8"
+  - "6"
+  - "4"
 
 install:
   - npm config set spin=false
   - npm install -g coveralls
   - npm install
 
+before_script:
+  - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+  - chmod +x ./cc-test-reporter
+  - ./cc-test-reporter before-build
+
 script:
   - npm test
   - npm run coverage
   - coveralls < ./coverage/lcov.info || true # if coveralls doesn't have it covered
+
+after_script:
+  - if [ "$TRAVIS_PULL_REQUEST" == "false" ]; then ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT; fi
 
 # Allow Travis tests to run in containers.
 sudo: false
