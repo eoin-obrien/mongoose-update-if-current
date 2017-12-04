@@ -1,0 +1,80 @@
+{
+  "name": "mongoose-update-if-current",
+  "version": "0.0.0",
+  "description": "Optimistic concurrency (OCC) plugin for mongoose",
+  "main": "dist/index.js",
+  "typings": "dist/index.d.ts",
+  "jam": {
+    "main": "./dist/index.browser.js"
+  },
+  "browser": {
+    "dist/index.js": "./dist/index.browser.js"
+  },
+  "scripts": {
+    "build": "webpack || echo not ok",
+    "test": "jest",
+    "test:watch": "npm test -- --watch",
+    "coverage": "npm test -- --coverage --no-cache",
+    "coverage:watch": "npm run coverage -- --watch",
+    "prepare": "npm run build && npm test",
+    "release": "standard-version && npm pack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/eoin-obrien/mongoose-update-if-current.git"
+  },
+  "keywords": [
+    "mongodb",
+    "mongoose",
+    "plugin",
+    "concurrency",
+    "versioning"
+  ],
+  "author": {
+    "name": "Eoin O'Brien",
+    "email": "eoinobrien910@gmail.com",
+    "url": "https://videtur.io/"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/eoin-obrien/mongoose-update-if-current/issues"
+  },
+  "homepage": "https://github.com/eoin-obrien/mongoose-update-if-current",
+  "devDependencies": {
+    "@types/jest": "^20.0.7",
+    "@types/node": "^8.0.24",
+    "browserify": "^14.4.0",
+    "delete-empty": "^1.0.1",
+    "dts-bundle": "^0.7.3",
+    "jest": "^20.0.4",
+    "standard-version": "^4.2.0",
+    "ts-jest": "^20.0.10",
+    "ts-loader": "^2.3.3",
+    "tslint": "^5.6.0",
+    "tslint-loader": "^3.5.3",
+    "typescript": "2.4.2",
+    "webpack": "3.5.5",
+    "webpack-node-externals": "^1.6.0"
+  },
+  "dependencies": {},
+  "jest": {
+    "transform": {
+      ".(ts|tsx)": "<rootDir>/node_modules/ts-jest/preprocessor.js"
+    },
+    "mapCoverage": true,
+    "collectCoverageFrom": [
+      "src/**/*.ts"
+    ],
+    "coveragePathIgnorePatterns": [
+      "/__tests__/",
+      "/node_modules/"
+    ],
+    "testEnvironment": "node",
+    "testRegex": "__tests__/.*\\.spec\\.ts$",
+    "moduleFileExtensions": [
+      "ts",
+      "js",
+      "json"
+    ]
+  }
+}
