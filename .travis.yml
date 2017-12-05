@@ -10,6 +10,9 @@ node_js:
   - "6"
   - "4"
 
+services:
+  - mongodb
+
 install:
   - npm config set spin=false
   - npm install -g coveralls
