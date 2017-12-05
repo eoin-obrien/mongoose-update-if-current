@@ -36,8 +36,8 @@ const libPath = function (name) {
 
 /* helper to clean leftovers */
 const outputCleanup = function (dir) {
-  const path = libPath();
-  if (!fs.existsSync(path)) {
+  const pathExists = fs.existsSync(libPath());
+  if (!pathExists) {
     return;
   }
 
