@@ -19,7 +19,8 @@ const libPath = function (name) {
 
 /* helper to clean leftovers */
 const outputCleanup = function (dir) {
-  if (!fs.existsSync(libPath())) {
+  const path = libPath();
+  if (!fs.existsSync(path)) {
     return;
   }
 
@@ -48,7 +49,6 @@ const percentage_handler = function handler(percentage) {
     outputCleanup(libPath());
     console.log('Build started... Good luck!');
   } else if (1.0 === percentage) {
-    // TODO: No Error detection. :(
     create_browser_version(webpack_opts.output.filename);
   }
 };
@@ -59,14 +59,14 @@ const webpack_opts = {
   target: 'node',
   output: {
     filename: libPath('index.js'),
-    libraryTarget: 'commonjs2'
+    libraryTarget: 'commonjs2',
   },
   resolve: {
     extensions: ['.ts', '.js'],
     modules: [
       'node_modules',
-      'src'
-    ]
+      'src',
+    ],
   },
   module: {
     loaders: [
@@ -74,15 +74,15 @@ const webpack_opts = {
         enforce: 'pre',
         test: /\.ts$/,
         loader: 'tslint-loader',
-        exclude: /node_modules/
+        exclude: /node_modules/,
       }, {
         test: /\.ts$/,
         loader: 'ts-loader',
         exclude: [
-          /node_modules/
-        ]
-      }
-    ]
+          /node_modules/,
+        ],
+      },
+    ],
   },
   externals: [nodeExternals()],
   plugins: [
@@ -91,11 +91,11 @@ const webpack_opts = {
       options: {
         tslint: {
           emitErrors: true,
-          failOnHint: true
-        }
-      }
+          failOnHint: true,
+        },
+      },
     }),
-    new webpack.ProgressPlugin(percentage_handler)
+    new webpack.ProgressPlugin(percentage_handler),
   ],
 };
 
