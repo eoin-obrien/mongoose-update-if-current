@@ -1,1 +1,1 @@
-export { Example } from './Example';
+export { updateIfCurrentPlugin } from './update-if-current-plugin';

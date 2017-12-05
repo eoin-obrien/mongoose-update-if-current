@@ -42,11 +42,13 @@
   "homepage": "https://github.com/eoin-obrien/mongoose-update-if-current",
   "devDependencies": {
     "@types/jest": "^20.0.7",
+    "@types/mongoose": "^4.7.28",
     "@types/node": "^8.0.24",
     "browserify": "^14.4.0",
     "delete-empty": "^1.0.1",
     "dts-bundle": "^0.7.3",
     "jest": "^20.0.4",
+    "mongoose": "^4.8.0",
     "standard-version": "^4.2.0",
     "ts-jest": "^20.0.10",
     "ts-loader": "^2.3.3",
