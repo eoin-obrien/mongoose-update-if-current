@@ -5,8 +5,40 @@
 [![Maintainability](https://api.codeclimate.com/v1/badges/beece5b98159623e813a/maintainability)](https://codeclimate.com/github/eoin-obrien/mongoose-update-if-current/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/beece5b98159623e813a/test_coverage)](https://codeclimate.com/github/eoin-obrien/mongoose-update-if-current/test_coverage)
 
-Optimistic concurrency (OCC) plugin for [mongoose](http://mongoosejs.com).
-Based on [ts-library-starter](https://github.com/DxCx/ts-library-starter).
+Optimistic concurrency (OCC) plugin for [mongoose](http://mongoosejs.com) v4.8 and higher.
+
+Increments document version numbers on each save, and prevents previous versions of a document
+from being saved over a newer version.
+
+See the `__tests__` directory for examples.
+
+## Install
+
+```bash
+$ npm install --save mongoose-update-if-current
+```
+
+## Usage
+
+On a single schema:
+
+```javascript
+import { updateIfCurrentPlugin } from 'mongoose-update-if-current';
+const mongoose = require('mongoose');
+
+const mySchema = new mongoose.Schema({ ... });
+mySchema.plugin(updateIfCurrentPlugin);
+```
+
+Globally:
+
+```javascript
+import { updateIfCurrentPlugin } from 'mongoose-update-if-current';
+const mongoose = require('mongoose');
+
+mongoose.plugin(updateIfCurrentPlugin);
+```
+
 
 ## Commands
 
@@ -20,3 +52,7 @@ npm run coverage:watch # run the tests with coverage (watch-mode)
 npm run pack           # build the library, make sure the tests passes, and then pack the library (creates .tgz)
 npm run release        # prepare package for next release
 ```
+
+## License
+
+[MIT](http://vjpr.mit-license.org)
