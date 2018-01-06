@@ -13,6 +13,8 @@ Optimistic concurrency (OCC) plugin for [mongoose](http://mongoosejs.com) v4.8 a
 Increments document version numbers on each save, and prevents previous versions of a document
 from being saved over a newer version.
 
+Inspired by [this issue](https://github.com/Automattic/mongoose/issues/4004) in the mongoose repo.
+
 See the `__tests__` directory for examples.
 
 ## Install
