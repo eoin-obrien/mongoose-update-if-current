@@ -10,8 +10,8 @@
   "browser": {
     "dist/index.js": "./dist/index.browser.js"
   },
-  "engines" : {
-    "node" : ">=4.0.0"
+  "engines": {
+    "node": ">=4.0.0"
   },
   "scripts": {
     "build": "webpack || echo not ok",
@@ -47,22 +47,22 @@
   },
   "homepage": "https://github.com/eoin-obrien/mongoose-update-if-current",
   "devDependencies": {
-    "@types/jest": "^20.0.7",
-    "@types/mongoose": "^4.7.28",
-    "@types/node": "^8.0.24",
-    "browserify": "^14.4.0",
+    "@types/jest": "^22.0.0",
+    "@types/mongoose": "^4.7.32",
+    "@types/node": "^8.5.5",
+    "browserify": "^15.0.0",
     "delete-empty": "^1.0.1",
     "dts-bundle": "^0.7.3",
-    "jest": "^20.0.4",
-    "mongoose": "^4.8.0",
-    "standard-version": "^4.2.0",
-    "ts-jest": "^20.0.10",
-    "ts-loader": "^2.3.3",
-    "tslint": "^5.6.0",
+    "jest": "^22.0.4",
+    "mongoose": ">=4.8.0",
+    "standard-version": "^4.3.0",
+    "ts-jest": "^22.0.1",
+    "ts-loader": "^3.2.0",
+    "tslint": "^5.8.0",
     "tslint-config-airbnb": "^5.4.2",
     "tslint-loader": "^3.5.3",
-    "typescript": "2.4.2",
-    "webpack": "3.5.5",
+    "typescript": "^2.6.2",
+    "webpack": "^3.10.0",
     "webpack-node-externals": "^1.6.0"
   },
   "dependencies": {},
