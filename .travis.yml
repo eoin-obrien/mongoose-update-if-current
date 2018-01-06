@@ -24,8 +24,7 @@ before_script:
   - ./cc-test-reporter before-build
 
 script:
-  - npm test
-  - npm run coverage
+  - npm run ci
   - coveralls < ./coverage/lcov.info || true # if coveralls doesn't have it covered
 
 after_script:

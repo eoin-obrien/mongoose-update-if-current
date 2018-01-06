@@ -23,7 +23,7 @@ afterAll(async () => {
   await mongoose.disconnect();
 });
 
-function getModel(name: string, versionKey?: string | boolean): mongoose.Model {
+function getModel(name: string, versionKey?: string | boolean): mongoose.Model<any> {
   // Create a simple schema
   const schema = new mongoose.Schema({
     name: String,
@@ -58,7 +58,7 @@ describe('updateIfCurrentPlugin', () => {
     // Should fail when saving an earlier version over a later version
     const thirdVersion = new Model(firstVersion);
     thirdVersion.name = 'Concurrency Problem Document';
-    await expect(thirdVersion.save()).rejects.toBeInstanceOf(mongoose.Error.DocumentNotFoundError);
+    await expect(thirdVersion.save()).rejects.toBeInstanceOf(mongoose.Error);
   });
 
   it('should handle documents with custom version keys', async () => {

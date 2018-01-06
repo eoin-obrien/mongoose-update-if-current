@@ -14,11 +14,12 @@
       "node_modules/@types"
     ],
     "types": [
-      "@types/node"
+      "@types/node",
+      "@types/jest"
     ]
   },
   "files": [
-    "src/index.ts"
+    "src/**"
   ],
   "exclude": [
     "node_modules"

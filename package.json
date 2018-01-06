@@ -1,26 +1,18 @@
 {
   "name": "mongoose-update-if-current",
   "version": "1.0.0",
-  "description": "Optimistic concurrency (OCC) plugin for mongoose",
+  "description": "Optimistic concurrency control (OCC) plugin for mongoose",
   "main": "dist/index.js",
-  "typings": "dist/index.d.ts",
-  "jam": {
-    "main": "./dist/index.browser.js"
-  },
-  "browser": {
-    "dist/index.js": "./dist/index.browser.js"
-  },
+  "typings": "typings/index.d.ts",
   "engines": {
     "node": ">=4.0.0"
   },
   "scripts": {
-    "build": "webpack || echo not ok",
+    "build": "gulp",
     "test": "jest",
-    "test:watch": "npm test -- --watch",
-    "coverage": "npm test -- --coverage --no-cache",
-    "coverage:watch": "npm run coverage -- --watch",
-    "prepare": "npm run build && npm test",
-    "release": "standard-version && npm pack"
+    "coverage": "jest --coverage --no-cache",
+    "ci": "npm run build && npm run coverage",
+    "prepack": "npm run build && npm test"
   },
   "repository": {
     "type": "git",
@@ -47,23 +39,24 @@
   },
   "homepage": "https://github.com/eoin-obrien/mongoose-update-if-current",
   "devDependencies": {
+    "@types/gulp": "^4.0.5",
     "@types/jest": "^22.0.0",
+    "@types/merge2": "^1.1.4",
     "@types/mongoose": "^4.7.32",
     "@types/node": "^8.5.5",
-    "browserify": "^15.0.0",
-    "delete-empty": "^1.0.1",
-    "dts-bundle": "^0.7.3",
+    "@types/run-sequence": "0.0.30",
+    "del": "^3.0.0",
+    "gulp": "^3.9.1",
+    "gulp-typescript": "^3.2.3",
     "jest": "^22.0.4",
+    "merge2": "^1.2.0",
     "mongoose": ">=4.8.0",
-    "standard-version": "^4.3.0",
+    "run-sequence": "^2.2.1",
     "ts-jest": "^22.0.1",
-    "ts-loader": "^3.2.0",
+    "ts-node": "^4.1.0",
     "tslint": "^5.8.0",
     "tslint-config-airbnb": "^5.4.2",
-    "tslint-loader": "^3.5.3",
-    "typescript": "^2.6.2",
-    "webpack": "^3.10.0",
-    "webpack-node-externals": "^1.6.0"
+    "typescript": "^2.6.2"
   },
   "dependencies": {},
   "peerDependencies": {

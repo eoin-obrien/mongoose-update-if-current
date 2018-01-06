@@ -1,4 +1,6 @@
 *
 !dist/**/*
+!typings/**/*
 !package.json
 !*.md
+!LICENSE
