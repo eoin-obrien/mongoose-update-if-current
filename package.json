@@ -66,6 +66,9 @@
     "webpack-node-externals": "^1.6.0"
   },
   "dependencies": {},
+  "peerDependencies": {
+    "mongoose": ">=4.8.0"
+  },
   "jest": {
     "transform": {
       ".(ts|tsx)": "<rootDir>/node_modules/ts-jest/preprocessor.js"
