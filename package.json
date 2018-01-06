@@ -10,6 +10,9 @@
   "browser": {
     "dist/index.js": "./dist/index.browser.js"
   },
+  "engines" : {
+    "node" : ">=4.0.0"
+  },
   "scripts": {
     "build": "webpack || echo not ok",
     "test": "jest",
