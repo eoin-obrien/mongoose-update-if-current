@@ -25,6 +25,29 @@ $ npm install --save mongoose-update-if-current
 
 ## Usage
 
+### With `require()`
+
+On a single schema:
+
+```javascript
+var updateIfCurrentPlugin = require('mongoose-update-if-current').updateIfCurrentPlugin;
+var mongoose = require('mongoose');
+
+var mySchema = new mongoose.Schema({ ... });
+mySchema.plugin(updateIfCurrentPlugin);
+```
+
+Globally:
+
+```javascript
+var updateIfCurrentPlugin = require('mongoose-update-if-current').updateIfCurrentPlugin;
+var mongoose = require('mongoose');
+
+mongoose.plugin(updateIfCurrentPlugin);
+```
+
+### With `import`
+
 On a single schema:
 
 ```javascript
@@ -43,7 +66,6 @@ const mongoose = require('mongoose');
 
 mongoose.plugin(updateIfCurrentPlugin);
 ```
-
 
 ## Commands
 
