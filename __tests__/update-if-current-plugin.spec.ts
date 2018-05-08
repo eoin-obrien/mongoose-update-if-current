@@ -9,7 +9,6 @@ import { updateIfCurrentPlugin } from '../src';
 beforeAll(async () => {
   const mongoDbUri: string = `mongodb://localhost/mongoose-update-if-current`;
   const connectionOptions: mongoose.ConnectionOptions = {
-    useMongoClient: true,
     socketTimeoutMS: 360000,
     keepAlive: 30000,
     reconnectTries: 30,
