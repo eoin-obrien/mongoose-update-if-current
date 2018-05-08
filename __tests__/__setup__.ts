@@ -1,6 +1,5 @@
 import * as mongoose from 'mongoose';
 import { isNullOrUndefined } from 'util';
-import { updateIfCurrentPlugin } from '../src';
 
 // Configure mongoose to use the global promise library
 (<any>mongoose).Promise = Promise;
