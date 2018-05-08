@@ -2,47 +2,27 @@ import * as mongoose from 'mongoose';
 import { isNullOrUndefined } from 'util';
 import { updateIfCurrentPlugin } from '../src';
 
-// Configure mongoose to use the global promise library
-(<any>mongoose).Promise = Promise;
-
-// Connect to MongoDB before testing
-beforeAll(async () => {
-  const mongoDbUri: string = `mongodb://localhost/mongoose-update-if-current`;
-  const connectionOptions: mongoose.ConnectionOptions = {
-    socketTimeoutMS: 360000,
-    keepAlive: 30000,
-    reconnectTries: 30,
-  };
-  await mongoose.connect(mongoDbUri, connectionOptions);
-});
-
-// Drop database and disconnect from MongoDB after testing
-afterAll(async () => {
-  await mongoose.connection.dropDatabase();
-  await mongoose.disconnect();
-});
-
-function getModel(name: string, versionKey?: string | boolean): mongoose.Model<any> {
+function getVersionModel(name: string, versionKey?: string | boolean): mongoose.Model<any> {
   // Create a simple schema
   const schema = new mongoose.Schema({
     name: String,
   });
-
+  
   // Customise version key if one is supplied
   if (!isNullOrUndefined(versionKey)) {
     schema.set('versionKey', versionKey);
   }
-
+  
   // Plugin
   schema.plugin(updateIfCurrentPlugin);
-
+  
   // Build model
   return mongoose.model(name, schema);
 }
 
-describe('updateIfCurrentPlugin', () => {
+describe('Using document versions:', () => {
   it('should manage concurrency when saving documents', async () => {
-    const Model = getModel('Model');
+    const Model = getVersionModel('PlainVersionModel');
 
     // Should save a new document
     const firstVersion = await new Model({ name: 'New Document' }).save();
@@ -61,7 +41,7 @@ describe('updateIfCurrentPlugin', () => {
   });
 
   it('should handle documents with custom version keys', async () => {
-    const Model = getModel('CustomVersionModel', '_version');
+    const Model = getVersionModel('CustomVersionModel', '_version');
 
     // Should save a new document
     const document = await new Model({ name: 'Custom Version Document' }).save();
@@ -69,7 +49,7 @@ describe('updateIfCurrentPlugin', () => {
   });
 
   it('should handle documents with disabled version keys', async () => {
-    const Model = getModel('DisabledVersionModel', false);
+    const Model = getVersionModel('DisabledVersionModel', false);
 
     // Should save a new document
     const document = await new Model({ name: 'Disabled Version Document' }).save();

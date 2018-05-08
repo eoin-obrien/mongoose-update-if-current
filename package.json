@@ -57,6 +57,7 @@
     "mongoose": ">=4.8.0"
   },
   "jest": {
+    "setupTestFrameworkScriptFile": "<rootDir>/__tests__/__setup__.ts",
     "transform": {
       ".(ts|tsx)": "<rootDir>/node_modules/ts-jest/preprocessor.js"
     },
