@@ -39,21 +39,22 @@
   },
   "homepage": "https://github.com/eoin-obrien/mongoose-update-if-current",
   "devDependencies": {
+    "@types/del": "^3.0.1",
     "@types/gulp": "^4.0.5",
     "@types/jest": "^22.0.0",
     "@types/merge2": "^1.1.4",
-    "@types/mongoose": "^4.7.32",
-    "@types/node": "^8.5.5",
+    "@types/mongoose": "^5.0.12",
+    "@types/node": "^10.0.4",
     "@types/run-sequence": "0.0.30",
     "del": "^3.0.0",
     "gulp": "^3.9.1",
-    "gulp-typescript": "^3.2.3",
+    "gulp-typescript": "^4.0.2",
     "jest": "^22.0.4",
     "merge2": "^1.2.0",
     "mongoose": ">=4.8.0",
     "run-sequence": "^2.2.1",
     "ts-jest": "^22.0.1",
-    "ts-node": "^4.1.0",
+    "ts-node": "^6.0.3",
     "tslint": "^5.8.0",
     "tslint-config-airbnb": "^5.4.2",
     "typescript": "^2.6.2"
@@ -66,7 +67,6 @@
     "transform": {
       ".(ts|tsx)": "<rootDir>/node_modules/ts-jest/preprocessor.js"
     },
-    "mapCoverage": true,
     "collectCoverageFrom": [
       "src/**/*.ts"
     ],
