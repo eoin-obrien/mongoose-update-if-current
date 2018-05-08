@@ -8,10 +8,11 @@
     "node": ">=4.0.0"
   },
   "scripts": {
-    "build": "gulp",
+    "build": "npm run clean && npm run tsc",
     "test": "jest",
-    "coverage": "jest --coverage --no-cache",
-    "ci": "npm run build && npm run coverage",
+    "clean": "del-cli 'dist/**' '!dist' 'typings/**' '!typings'",
+    "tsc": "tsc --project tsconfig.json",
+    "ci": "npm run build && npm test -- --coverage --no-cache",
     "prepack": "npm run build && npm test"
   },
   "repository": {
@@ -39,20 +40,12 @@
   },
   "homepage": "https://github.com/eoin-obrien/mongoose-update-if-current",
   "devDependencies": {
-    "@types/del": "^3.0.1",
-    "@types/gulp": "^4.0.5",
     "@types/jest": "^22.0.0",
-    "@types/merge2": "^1.1.4",
     "@types/mongoose": "^5.0.12",
     "@types/node": "^10.0.4",
-    "@types/run-sequence": "0.0.30",
-    "del": "^3.0.0",
-    "gulp": "^3.9.1",
-    "gulp-typescript": "^4.0.2",
+    "del-cli": "^1.1.0",
     "jest": "^22.0.4",
-    "merge2": "^1.2.0",
     "mongoose": ">=4.8.0",
-    "run-sequence": "^2.2.1",
     "ts-jest": "^22.0.1",
     "ts-node": "^6.0.3",
     "tslint": "^5.8.0",

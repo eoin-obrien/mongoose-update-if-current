@@ -18,8 +18,8 @@
       "@types/jest"
     ]
   },
-  "files": [
-    "src/**"
+  "include": [
+    "src/**/*"
   ],
   "exclude": [
     "node_modules"
