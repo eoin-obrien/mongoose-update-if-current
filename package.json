@@ -8,11 +8,12 @@
     "node": ">=6.0.0"
   },
   "scripts": {
-    "build": "npm run clean && npm run tsc",
     "test": "jest",
+    "build": "npm run clean && npm run tsc",
+    "ci": "npm run build && npm test -- --coverage --no-cache",
     "clean": "del-cli 'dist/**' '!dist' 'typings/**' '!typings'",
     "tsc": "tsc --project tsconfig.json",
-    "ci": "npm run build && npm test -- --coverage --no-cache",
+    "tslint": "tslint --project tsconfig.json",
     "prepack": "npm run build && npm test"
   },
   "repository": {
