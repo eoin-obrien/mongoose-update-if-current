@@ -2,6 +2,7 @@ import * as mongoose from 'mongoose';
 import { isNullOrUndefined } from 'util';
 import { updateIfCurrentPlugin } from '../src';
 
+
 function getVersionModel(name: string, versionKey?: string | boolean): mongoose.Model<any> {
   // Create a simple schema
   const schema = new mongoose.Schema({
@@ -20,7 +21,8 @@ function getVersionModel(name: string, versionKey?: string | boolean): mongoose.
   return mongoose.model(name, schema);
 }
 
-describe('Using document versions:', () => {
+
+describe('Document#save()', () => {
   it('should manage concurrency when saving documents', async () => {
     const Model = getVersionModel('PlainVersionModel');
 
