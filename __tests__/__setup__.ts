@@ -6,7 +6,7 @@ import { isNullOrUndefined } from 'util';
 
 // Connect to MongoDB before testing
 beforeAll(async () => {
-  const mongoDbUri: string = `mongodb://localhost/mongoose-update-if-current`;
+  const mongoDbUri: string = 'mongodb://localhost/mongoose-update-if-current';
   const connectionOptions: mongoose.ConnectionOptions = {
     useNewUrlParser: true,
   };

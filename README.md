@@ -61,7 +61,7 @@ Let's save a new `Book` to MongoDB.
 ```
 
 Our book document should look something like this:
-    
+
 ```javascript
     {
         __v: 0,
@@ -80,7 +80,7 @@ Now that it's in the database, a user fetches the book and updates it.
 ```
 
 The book document in MongoDB now looks like this:
-    
+
 ```javascript
     {
         __v: 1,  // note the incremented version
