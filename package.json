@@ -42,7 +42,7 @@
   "homepage": "https://github.com/eoin-obrien/mongoose-update-if-current",
   "devDependencies": {
     "@types/jest": "^22.0.0",
-    "@types/mongoose": "^5.0.12",
+    "@types/mongoose": "^5.5.8",
     "@types/node": "^10.0.4",
     "del-cli": "^1.1.0",
     "jest": "^24.8.0",

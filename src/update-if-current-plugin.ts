@@ -1,9 +1,6 @@
 import * as mongoose from 'mongoose';
 
 export function updateIfCurrentPlugin(schema: mongoose.Schema) {
-  // Throw an error if the save fails
-  schema.set('saveErrorIfNotFound', true);
-
   // Enable document version key if necessary
   if (!schema.get('versionKey')) {
     schema.set('versionKey', '__v');

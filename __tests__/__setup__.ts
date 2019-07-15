@@ -8,9 +8,7 @@ import { isNullOrUndefined } from 'util';
 beforeAll(async () => {
   const mongoDbUri: string = `mongodb://localhost/mongoose-update-if-current`;
   const connectionOptions: mongoose.ConnectionOptions = {
-    socketTimeoutMS: 360000,
-    keepAlive: 30000,
-    reconnectTries: 30,
+    useNewUrlParser: true,
   };
   await mongoose.connect(mongoDbUri, connectionOptions);
 });
