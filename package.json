@@ -58,7 +58,9 @@
     "mongoose": ">=4.8.0"
   },
   "jest": {
-    "setupTestFrameworkScriptFile": "<rootDir>/__tests__/__setup__.ts",
+    "setupFilesAfterEnv": [
+      "<rootDir>/__tests__/__setup__.ts"
+    ],
     "transform": {
       ".(ts|tsx)": "ts-jest"
     },
