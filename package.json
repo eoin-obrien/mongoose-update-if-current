@@ -1,6 +1,6 @@
 {
   "name": "mongoose-update-if-current",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Optimistic concurrency control (OCC) plugin for mongoose",
   "main": "dist/index.js",
   "typings": "typings/index.d.ts",
