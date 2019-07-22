@@ -16,10 +16,9 @@ Inspired by [issue #4004](https://github.com/Automattic/mongoose/issues/4004) in
 ## Installation
 
 ```
+$ npm install --save mongoose
 $ npm install --save mongoose-update-if-current
 ```
-
-The plugin requires Mongoose v4.8 or higher as a peer dependency.
 
 ## Getting Started
 
