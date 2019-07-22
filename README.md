@@ -5,7 +5,7 @@
 [![Dependencies](https://david-dm.org/eoin-obrien/mongoose-update-if-current.svg)](https://david-dm.org/eoin-obrien/mongoose-update-if-current)
 [![DevDependencies](https://david-dm.org/eoin-obrien/mongoose-update-if-current/dev-status.svg)](https://david-dm.org/eoin-obrien/mongoose-update-if-current?type=dev)
 [![Maintainability](https://api.codeclimate.com/v1/badges/beece5b98159623e813a/maintainability)](https://codeclimate.com/github/eoin-obrien/mongoose-update-if-current/maintainability)
-[![Test Coverage](https://api.codeclimate.com/v1/badges/beece5b98159623e813a/test_coverage)](https://codeclimate.com/github/eoin-obrien/mongoose-update-if-current/test_coverage)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/beece5b98159623e813a/test_coverage)](https://codeclimate.com/github/eoin-obrien/mongoose-update-if-current/test_coverage) [![Greenkeeper badge](https://badges.greenkeeper.io/eoin-obrien/mongoose-update-if-current.svg)](https://greenkeeper.io/)
 
 > Optimistic concurrency control plugin for [Mongoose](http://mongoosejs.com) v4.8 and higher.
 
