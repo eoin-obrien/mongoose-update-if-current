@@ -41,14 +41,14 @@
   },
   "homepage": "https://github.com/eoin-obrien/mongoose-update-if-current",
   "devDependencies": {
-    "@types/jest": "^22.0.0",
+    "@types/jest": "^24.0.15",
     "@types/mongoose": "^5.5.8",
-    "@types/node": "^10.14.12",
-    "del-cli": "^1.1.0",
+    "@types/node": "^12.6.8",
+    "del-cli": "^2.0.0",
     "jest": "^24.8.0",
     "mongoose": "^5.6.4",
     "ts-jest": "^24.0.2",
-    "ts-node": "^6.2.0",
+    "ts-node": "^8.3.0",
     "tslint": "^5.18.0",
     "tslint-config-airbnb": "^5.11.1",
     "typescript": "^3.5.3"
