@@ -7,7 +7,7 @@
 [![Maintainability](https://api.codeclimate.com/v1/badges/beece5b98159623e813a/maintainability)](https://codeclimate.com/github/eoin-obrien/mongoose-update-if-current/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/beece5b98159623e813a/test_coverage)](https://codeclimate.com/github/eoin-obrien/mongoose-update-if-current/test_coverage) [![Greenkeeper badge](https://badges.greenkeeper.io/eoin-obrien/mongoose-update-if-current.svg)](https://greenkeeper.io/)
 
-> Optimistic concurrency control plugin for [Mongoose](http://mongoosejs.com) v4.8 and higher.
+> Optimistic concurrency control plugin for [Mongoose](http://mongoosejs.com) v5.0 and higher.
 
 This plugin brings optimistic concurrency control to Mongoose documents by incrementing document version numbers on each save, and preventing previous versions of a document from being saved over the current version.
 
@@ -29,7 +29,7 @@ Import the plugin from the package:
 import { updateIfCurrentPlugin } from 'mongoose-update-if-current';
 
 /* Using require() */
-var updateIfCurrentPlugin = require('mongoose-update-if-current').updateIfCurrentPlugin;
+const { updateIfCurrentPlugin } = require('mongoose-update-if-current');
 ```
 
 Add it to mongoose as a global plugin, or add it to a single schema:
@@ -43,9 +43,21 @@ const mySchema = new mongoose.Schema({ ... });
 mySchema.plugin(updateIfCurrentPlugin);
 ```
 
+Default behaviour is to use the schema's version key (`__v` by default) to implement concurrency control.
+The plugin can be configured to use timestamps (`updatedAt` by default) instead, if they are enabled on the schema:
+
+```javascript
+/* Global plugin - remember to add { timestamps: true } to each schema */
+mongoose.plugin(updateIfCurrentPlugin, { strategy: 'timestamp' });
+
+/* Single schema */
+const mySchema = new mongoose.Schema({ ... }, { timestamps: true });
+mySchema.plugin(updateIfCurrentPlugin, { strategy: 'timestamp' });
+```
+
 The plugin will hook into the `save()` function on schema documents to increment the version and check that it matches the version in the database before persisting it.
 
-**NB:** If the schema does not have a version key, then the plugin will enable the default version key of `__v`. If the schema has a custom version key set, then the plugin will automatically regognise and use it.
+**NB:** If the schema has a custom version key or timestamp field set, then the plugin will automatically regognise and use it. An error will be throws if you attempt to add the plugin to a schema without the fields to support it.
 
 ## Usage
 
@@ -104,15 +116,15 @@ When the other user tries to save an out-of-date version of the document to the 
 
 See the `__tests__` directory for more usage examples.
 
-## Caveats
+## Notes
 
 - The plugin manages concurrency when a document is updated using `Document.save()`, but you can still force updates using `Model.update()`, `Model.findByIdAndUpdate()` or `Model.findOneAndUpdate()` if you so desire.
-- Due to its reliance on the document version key, this plugin might not be compatible with others that affect this key.
-- The plugin causes the document's version to be incremented whenever `save()` is called, contrary to Mongoose's default behaviour.
+- The plugin relies on either `__v` or `updatedAt` to implement concurrency control; as such, this plugin might not be compatible with other plugins that alter these fields.
+- The plugin causes the document's version to be incremented whenever `save()` is called when using it for concurrency control.
 
 ## Development
 
-The project uses the [AirBnB JavaScript code style](https://github.com/airbnb/javascript) adapted for [TypeScript](https://github.com/progre/tslint-config-airbnb). The test suites are built on Facebook's [Jest](https://facebook.github.io/jest/). Make sure that any changes you make are fully tested and linted before submitting a pull request!
+The project uses the [Google JavaScript code style](https://google.github.io/styleguide/jsguide.html). The test suites are built on Facebook's [Jest](https://facebook.github.io/jest/). Make sure that any changes you make are fully tested and linted before submitting a pull request!
 
 | Command | Description |
 | --- | --- |
@@ -120,8 +132,8 @@ The project uses the [AirBnB JavaScript code style](https://github.com/airbnb/ja
 | `npm run build` | Builds the project |
 | `npm run ci` | Builds the project, runs tests and reports coverage |
 | `npm run clean` | Cleans build output directories |
-| `npm run tsc` | Transpiles TypeScript to ES5 |
-| `npm run tslint` | Lints TypeScript code |
+| `npm run babel` | Transpiles JavaScript code |
+| `npm run lint` | Lints JavaScript code |
 
 ## License
 

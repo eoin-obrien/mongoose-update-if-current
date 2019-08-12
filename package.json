@@ -2,18 +2,18 @@
   "name": "mongoose-update-if-current",
   "version": "1.1.2",
   "description": "Optimistic concurrency control (OCC) plugin for mongoose",
-  "main": "dist/index.js",
+  "main": "lib/index.js",
   "typings": "typings/index.d.ts",
   "engines": {
     "node": ">=8.0.0"
   },
   "scripts": {
     "test": "jest",
-    "build": "npm run clean && npm run tsc",
+    "build": "npm run clean && npm run babel",
     "ci": "npm run build && npm test -- --coverage --no-cache",
-    "clean": "del-cli 'dist/**' '!dist' 'typings/**' '!typings'",
-    "tsc": "tsc --project tsconfig.json",
-    "tslint": "tslint --project tsconfig.json",
+    "clean": "del-cli 'lib/**' '!lib'",
+    "babel": "babel src --out-dir lib --source-maps",
+    "lint": "eslint src __tests__",
     "prepack": "npm run build && npm test"
   },
   "repository": {
@@ -41,38 +41,43 @@
   },
   "homepage": "https://github.com/eoin-obrien/mongoose-update-if-current",
   "devDependencies": {
-    "@types/jest": "24.0.16",
-    "@types/mongoose": "^5.5.12",
-    "@types/node": "^12.6.8",
+    "@babel/cli": "^7.5.5",
+    "@babel/core": "^7.5.5",
+    "@babel/node": "^7.5.5",
+    "@babel/preset-env": "^7.5.5",
+    "babel-core": "^6.26.3",
+    "babel-jest": "^24.8.0",
+    "core-js": "^3.2.0",
     "del-cli": "^2.0.0",
+    "eslint": "^6.1.0",
+    "eslint-config-google": "^0.13.0",
     "jest": "^24.8.0",
-    "mongoose": "^5.6.4",
-    "ts-jest": "^24.0.2",
-    "ts-node": "^8.3.0",
-    "tslint": "^5.18.0",
-    "tslint-config-airbnb": "^5.11.1",
-    "typescript": "^3.5.3"
+    "mongoose": "^5.6.9",
+    "regenerator-runtime": "^0.13.3",
+    "uuid": "^3.3.2"
   },
-  "dependencies": {},
+  "dependencies": {
+    "kareem": "^2.3.0"
+  },
   "peerDependencies": {
     "mongoose": ">=5.0.0"
   },
   "jest": {
     "setupFilesAfterEnv": [
-      "<rootDir>/__tests__/__setup__.ts"
+      "<rootDir>/__tests__/__setup__.js"
     ],
     "transform": {
-      ".(ts|tsx)": "ts-jest"
+      "^.+\\.jsx?$": "babel-jest"
     },
     "collectCoverageFrom": [
-      "src/**/*.ts"
+      "src/**/*.js"
     ],
     "coveragePathIgnorePatterns": [
       "/__tests__/",
       "/node_modules/"
     ],
     "testEnvironment": "node",
-    "testRegex": "__tests__/.*\\.spec\\.ts$",
+    "testRegex": "__tests__/.*\\.spec\\.js$",
     "moduleFileExtensions": [
       "ts",
       "js",

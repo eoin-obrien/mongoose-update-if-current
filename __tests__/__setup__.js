@@ -1,13 +1,17 @@
-import * as mongoose from 'mongoose';
-import { isNullOrUndefined } from 'util';
+import 'core-js/stable';
+import 'regenerator-runtime/runtime';
+
+import mongoose from 'mongoose';
+import uuidv4 from 'uuid/v4';
 
 // Configure mongoose to use the global promise library
-(<any>mongoose).Promise = Promise;
+mongoose.Promise = Promise;
 
 // Connect to MongoDB before testing
 beforeAll(async () => {
-  const mongoDbUri: string = 'mongodb://localhost/mongoose-update-if-current';
-  const connectionOptions: mongoose.ConnectionOptions = {
+  // Connect to a unique database per test script
+  const mongoDbUri = 'mongodb://localhost/mongoose-update-if-current-' + uuidv4();
+  const connectionOptions = {
     useNewUrlParser: true,
   };
   await mongoose.connect(mongoDbUri, connectionOptions);
