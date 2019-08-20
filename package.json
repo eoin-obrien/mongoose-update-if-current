@@ -47,17 +47,17 @@
     "@babel/preset-env": "^7.5.5",
     "babel-core": "^6.26.3",
     "babel-jest": "^24.8.0",
-    "core-js": "^3.2.1",
     "del-cli": "^2.0.0",
     "eslint": "^6.1.0",
     "eslint-config-google": "^0.13.0",
     "jest": "^24.8.0",
     "mongoose": "^5.6.9",
-    "regenerator-runtime": "^0.13.3",
     "uuid": "^3.3.2"
   },
   "dependencies": {
-    "kareem": "^2.3.0"
+    "core-js": "^3.2.1",
+    "kareem": "^2.3.0",
+    "regenerator-runtime": "^0.13.3"
   },
   "peerDependencies": {
     "mongoose": ">=5.0.0"
