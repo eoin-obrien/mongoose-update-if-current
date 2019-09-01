@@ -29,4 +29,4 @@ jobs:
         CI: true
         CC_TEST_REPORTER_ID: 3d6fb8990d360e76598ea2087d118d941322480e8eed258b77468bf5ce6f5aec
       with:
-        coverageCommand: npm install && npm run ci
+        coverageCommand: npm run ci
