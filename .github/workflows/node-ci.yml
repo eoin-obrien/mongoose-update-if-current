@@ -1,6 +1,6 @@
 name: Node CI
 
-on: [push]
+on: [push, pull_request]
 
 jobs:
   build:
@@ -18,8 +18,12 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
+        
+    - name: Install dependencies
+      run: |
+        npm install
 
-    - name: npm ci and publish code coverage
+    - name: Build, test and publish code coverage
       uses: paambaati/codeclimate-action@v2.2.0
       env:
         CI: true
