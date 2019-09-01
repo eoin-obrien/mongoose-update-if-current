@@ -1,11 +1,12 @@
 # mongoose-update-if-current
 
+[![Dependabot Status](https://api.dependabot.com/badges/status?host=github&repo=eoin-obrien/mongoose-update-if-current)](https://dependabot.com)
 [![Build Status](https://travis-ci.org/eoin-obrien/mongoose-update-if-current.svg?branch=master)](https://travis-ci.org/eoin-obrien/mongoose-update-if-current)
 [![Version](https://img.shields.io/npm/v/mongoose-update-if-current.svg)](https://www.npmjs.com/package/mongoose-update-if-current)
 [![Dependencies](https://david-dm.org/eoin-obrien/mongoose-update-if-current.svg)](https://david-dm.org/eoin-obrien/mongoose-update-if-current)
 [![DevDependencies](https://david-dm.org/eoin-obrien/mongoose-update-if-current/dev-status.svg)](https://david-dm.org/eoin-obrien/mongoose-update-if-current?type=dev)
 [![Maintainability](https://api.codeclimate.com/v1/badges/beece5b98159623e813a/maintainability)](https://codeclimate.com/github/eoin-obrien/mongoose-update-if-current/maintainability)
-[![Test Coverage](https://api.codeclimate.com/v1/badges/beece5b98159623e813a/test_coverage)](https://codeclimate.com/github/eoin-obrien/mongoose-update-if-current/test_coverage) [![Greenkeeper badge](https://badges.greenkeeper.io/eoin-obrien/mongoose-update-if-current.svg)](https://greenkeeper.io/)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/beece5b98159623e813a/test_coverage)](https://codeclimate.com/github/eoin-obrien/mongoose-update-if-current/test_coverage)
 
 > Optimistic concurrency control plugin for [Mongoose](http://mongoosejs.com) v5.0 and higher.
 
