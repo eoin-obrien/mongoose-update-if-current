@@ -1,0 +1,29 @@
+name: Node CI
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [8.x, 10.x, 12.x]
+
+    steps:
+    - uses: actions/checkout@v1
+
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ matrix.node-version }}
+
+    - name: npm ci and publish code coverage
+      uses: paambaati/codeclimate-action@v2.2.0
+      env:
+        CI: true
+        CC_TEST_REPORTER_ID: 3d6fb8990d360e76598ea2087d118d941322480e8eed258b77468bf5ce6f5aec
+      with: |
+        npm install
+        npm run ci
