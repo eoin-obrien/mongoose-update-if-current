@@ -13,6 +13,14 @@ jobs:
 
     steps:
     - uses: actions/checkout@v1
+    
+    - name: Use MongoDB
+      run: |
+        wget -qO - https://www.mongodb.org/static/pgp/server-4.2.asc | sudo apt-key add -
+        echo "deb [ arch=amd64 ] https://repo.mongodb.org/apt/ubuntu bionic/mongodb-org/4.2 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-4.2.list
+        apt-get update -y
+        apt-get install -y mongodb-org
+        service mongod start
 
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v1
