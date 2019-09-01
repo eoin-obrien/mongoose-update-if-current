@@ -14,7 +14,8 @@
     "clean": "del-cli 'lib/**' '!lib'",
     "babel": "babel src --out-dir lib --source-maps",
     "lint": "eslint src __tests__",
-    "prepack": "npm run build && npm test"
+    "prepack": "npm run build && npm test",
+    "postversion": "npm run build && npm run test && git push && git push --tags && npm publish"
   },
   "repository": {
     "type": "git",
