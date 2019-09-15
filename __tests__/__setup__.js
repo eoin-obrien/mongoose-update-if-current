@@ -13,6 +13,7 @@ beforeAll(async () => {
   const mongoDbUri = 'mongodb://localhost/mongoose-update-if-current-' + uuidv4();
   const connectionOptions = {
     useNewUrlParser: true,
+    useUnifiedTopology: true,
   };
   await mongoose.connect(mongoDbUri, connectionOptions);
 });
