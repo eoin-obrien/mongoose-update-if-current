@@ -43,7 +43,7 @@
   "homepage": "https://github.com/eoin-obrien/mongoose-update-if-current",
   "devDependencies": {
     "@babel/cli": "^7.6.2",
-    "@babel/core": "^7.5.5",
+    "@babel/core": "^7.6.2",
     "@babel/node": "^7.5.5",
     "@babel/preset-env": "^7.5.5",
     "babel-core": "^6.26.3",
