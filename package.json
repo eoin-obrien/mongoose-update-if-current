@@ -43,22 +43,22 @@
   "homepage": "https://github.com/eoin-obrien/mongoose-update-if-current",
   "devDependencies": {
     "@babel/cli": "^7.6.2",
-    "@babel/core": "^7.6.2",
-    "@babel/node": "^7.6.2",
-    "@babel/preset-env": "^7.6.2",
+    "@babel/core": "^7.9.0",
+    "@babel/node": "^7.8.7",
+    "@babel/preset-env": "^7.9.0",
     "babel-core": "^6.26.3",
-    "babel-jest": "^25.1.0",
+    "babel-jest": "^25.2.6",
     "del-cli": "^3.0.0",
     "eslint": "^6.1.0",
     "eslint-config-google": "^0.14.0",
-    "jest": "^25.1.0",
-    "mongoose": "^5.6.9",
-    "uuid": "^7.0.0"
+    "jest": "^25.2.6",
+    "mongoose": "^5.9.7",
+    "uuid": "^7.0.3"
   },
   "dependencies": {
     "core-js": "^3.2.1",
     "kareem": "^2.3.0",
-    "regenerator-runtime": "^0.13.3"
+    "regenerator-runtime": "^0.13.5"
   },
   "peerDependencies": {
     "mongoose": ">=5.0.0"
