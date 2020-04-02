@@ -7,6 +7,11 @@ import assert from 'assert';
  * @param {mongoose.Schema} schema - A Mongoose schema to be plugged into.
  */
 export function versionOCCPlugin(schema) {
+  if (schema.$implicitlyCreated) {
+    // Implicit creation mean that it's an internal model, aka subdocument.
+    // In this case, we don't want to add hooks, because methods are not existing and it's not relevant.
+    return;
+  }
   // Get version key name
   const versionKey = schema.get('versionKey');
   assert(versionKey, 'document schema must have a version key');
