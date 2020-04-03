@@ -16,6 +16,10 @@ mongoose.plugin(timestampOCCPlugin);
 function getModel(name, timestamps) {
   const schema = new mongoose.Schema({
     name: String,
+    nested: [{
+        _id: false,
+        name: String,
+    }],
   });
   if (timestamps !== undefined) {
     schema.set('timestamps', timestamps);
@@ -26,7 +30,7 @@ function getModel(name, timestamps) {
 describe('timestampOCCPlugin', () => {
   it('should implement OCC using the schema\'s timestamp fields', async () => {
     const Model = getModel('DefaultTimestampModel', true);
-    const document = await new Model({name: 'New Document'}).save();
+    const document = await new Model({name: 'New Document', nested: [{name: 'New Document'}]}).save();
 
     // it should save an update with an up-to-date timestamp
     const updatedDocument = new Model(document);
