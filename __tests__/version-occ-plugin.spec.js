@@ -16,6 +16,10 @@ mongoose.plugin(versionOCCPlugin);
 function getModel(name, versionKey) {
   const schema = new mongoose.Schema({
     name: String,
+    nested: [{
+        _id: false,
+        name: String,
+    }],
   });
   if (versionKey !== undefined) {
     schema.set('versionKey', versionKey);
@@ -28,7 +32,7 @@ describe('versionOCCPlugin', () => {
     const Model = getModel('DefaultVersionModel');
 
     // it should save a new document
-    const document = await new Model({name: 'New Document'}).save();
+    const document = await new Model({name: 'New Document', nested: [{name: 'New Document'}]}).save();
     expect(document.__v).toBe(0);
 
     // it should increment the version number when saving an update
