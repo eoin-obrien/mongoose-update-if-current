@@ -8,6 +8,11 @@ import Kareem from 'kareem';
  * @param {mongoose.Schema} schema - A Mongoose schema to be plugged into.
  */
 export function timestampOCCPlugin(schema) {
+  if (schema.$implicitlyCreated) {
+    // Implicit creation mean that it's an internal model, aka subdocument.
+    // In this case, we don't want to add hooks, because methods are not existing and it's not relevant.
+    return;
+  }
   assert(schema.$timestamps, 'schema must have timestamps enabled');
 
   const updatedAt = schema.$timestamps.updatedAt;
