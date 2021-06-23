@@ -51,7 +51,7 @@
     "del-cli": "^3.0.0",
     "eslint": "^7.0.0",
     "eslint-config-google": "^0.14.0",
-    "jest": "^26.0.1",
+    "jest": "^27.0.5",
     "mongoose": "^5.9.7",
     "uuid": "^8.0.0"
   },
